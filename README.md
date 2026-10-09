@@ -21,7 +21,6 @@ The dataset contains messy and missing values, making it a good representation o
 
 * 🐍 Python
 * 📑 Pandas
-* 🔢 NumPy
 * 📈 Matplotlib
 * 🎨 Seaborn
 * 📓 Jupyter Notebook
@@ -50,8 +49,9 @@ Several columns had missing or mixed-format values, which required cleaning befo
 Key steps performed:
 
 * Renamed columns for consistency
-* Converted date fields into proper datetime format
+* Converted date fields into proper datetime format (stripping stray whitespace first)
 * Filled missing values without dropping large amounts of data
+* Moved 3 misplaced runtime values out of the `rating` column into `duration`
 * Extracted numeric values from the `duration` column
 * Treated Movies and TV Shows differently where required
 
@@ -89,11 +89,20 @@ All visualizations are designed to be **simple, clean, and dashboard-style**.
 ## 📁 Project structure
 
 ```
-Netflix-Data-Analysis/
+Netflix_Data_Analysis/
 │
-├── netflix_data_analysis.ipynb
+├── netflix.ipynb
 ├── netflix_titles.csv
+├── requirements.txt
+├── LICENSE
 └── README.md
+```
+
+Run the notebook from the project root (it reads `netflix_titles.csv` from the current directory):
+
+```
+pip install -r requirements.txt
+jupyter notebook netflix.ipynb
 ```
 
 ---
